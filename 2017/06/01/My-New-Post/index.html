@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>My New Post | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="CSE104 Data StructureChenxu Fu 1509284Summary####Designing  The program utilized HashMap as its major data structure. Considering the system needs to store ‘product’, ‘vendor’,’price’ while HashMap ca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="My New Post">
+<meta property="og:url" content="https://github.com/fuchenxu2008/fuchenxu2008.github.io/2017/06/01/My-New-Post/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="CSE104 Data StructureChenxu Fu 1509284Summary####Designing  The program utilized HashMap as its major data structure. Considering the system needs to store ‘product’, ‘vendor’,’price’ while HashMap ca">
+<meta property="og:updated_time" content="2017-05-31T19:16:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="My New Post">
+<meta name="twitter:description" content="CSE104 Data StructureChenxu Fu 1509284Summary####Designing  The program utilized HashMap as its major data structure. Considering the system needs to store ‘product’, ‘vendor’,’price’ while HashMap ca">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/fuchenxu2008.github.io/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/fuchenxu2008.github.io/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/fuchenxu2008.github.io/">Home</a>
+        
+          <a class="main-nav-link" href="/fuchenxu2008.github.io/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Zoeken"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/fuchenxu2008/fuchenxu2008.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-My-New-Post" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/fuchenxu2008.github.io/2017/06/01/My-New-Post/" class="article-date">
+  <time datetime="2017-05-31T19:15:22.000Z" itemprop="datePublished">2017-06-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      My New Post
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CSE104-Data-Structure"><a href="#CSE104-Data-Structure" class="headerlink" title="CSE104 Data Structure"></a>CSE104 Data Structure</h1><h2 id="Chenxu-Fu-1509284"><a href="#Chenxu-Fu-1509284" class="headerlink" title="Chenxu Fu 1509284"></a>Chenxu Fu 1509284</h2><h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>####Designing</p>
+<ul>
+<li>The program utilized HashMap as its major data structure. Considering the system needs to store ‘product’, ‘vendor’,’price’ while HashMap can only store binary-element information, a nested HashMap acts as the outer HashMap’s value.</li>
+<li>In all the manipulation methods used, it takes user input to search the collection. Since product is the key, it can quickly determine whether the collection contains  products of inputted name. Then similarly, by matching the key of nested HashMap, it can locate the product with designated vendor if it exists.</li>
+<li>For Add() method, there are 3 scenarios. If there is already the same product by same vendor, system rejects the entry. If the same product exists but by no same vendor, retrieve the nested HashMap and add the new vendor/price pair to it. If it is a new item, create a new HashMap and add the vendor/price pair to it, and nest the HashMap to the outer ItemHashMap as its value, product name as its key.</li>
+<li>For Ask() and Delete() methods, differentiate two scenarios that vendor is inputted and not. If vendor is input, get or modify the designated product if available. If vendor is not inputted, traverse the collection and get all products by inputted product.</li>
+<li>For DisplayAll() method, it utilized Set to traverse the collection. By assigning the keySet of both the inner and outer HashMap to a new Set. For-Each method can be used to iterate through the collection and to print the information.</li>
+<li><strong>Hashmap</strong> put() and get() operation <strong>time complexity</strong> is O(1) with assumption that key-value pairs are well distributed across the buckets. So in comparison, it is more efficient when removing entries than <strong>ArrayList</strong> on remove() and contains() – O(n). Set is also O(1) if using HashSet.<br>####Testing</li>
+<li>To test the program, I added a few lines of code to preset a product as it initialized and tested a variety of scenarios as follows:<ol>
+<li>Basic formatting issues including wrong commands, invalid prices.</li>
+<li>Try Add() to add an <strong>identical</strong> product to see if it is rejected. Add an existing product by a <strong>new vendor</strong>. Add a completely <strong>new product</strong> entry.</li>
+<li>Try Update() to update a <strong>non-existing</strong> product and a existing product.</li>
+<li>Try Ask() to inquire an existing product by <strong>not</strong> specifying vendor and <strong>specifying</strong> one and inquire a <strong>non-existing</strong> product.</li>
+<li>Try Delete() by deleting <strong>specifying</strong> a product with only <strong>one</strong> vendor as well as <strong>multiple</strong> vendors and by deleting products with only <strong>one</strong> vendor as well as <strong>multiple</strong> vendors <strong>with no vendor specified</strong></li>
+<li>After each operation above, try DisplayAll() to examine the execution result.</li>
+</ol>
+</li>
+<li><p>When it comes to debugging, I first made use of the Code Editor to eliminate my grammar mistakes. Auto-Complete function could tell me if I was wrong in some scenarios. And after each progress I made, I ran it to test it out using DisplayAll().</p>
+<blockquote>
+<p>For instance, when I primarily programmed Add(), I initialized a new HashMap every time I added a product, which resulted in the existing product by new vendor replacing the old one. As I saw from the DisplayAll(), I knew new vendor entry should be added to the original nested HashMap.<br>####Pseudo Code</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line">Define a HashMap <span class="string">'ItemMap'</span> with String as its key and a nested HashMap as its value, the inner HashMap has String and Integer as its key and value.</div><div class="line">Main method</div><div class="line">  BEGIN LOOP</div><div class="line">    Let user input a command.</div><div class="line">    Call corresponding methods <span class="keyword">if</span> matching the preset commands</div><div class="line">    <span class="keyword">if</span> command is <span class="string">'Quit'</span></div><div class="line">      Terminate the program.</div><div class="line">    <span class="function">End <span class="keyword">if</span></span></div><div class="line">  END LOOP</div><div class="line">END Main</div><div class="line">Method <span class="title">Add</span><span class="params">()</span></div><div class="line">      Get product name and vendor name</div><div class="line">      <span class="keyword">if</span> product exists</div><div class="line">        <span class="keyword">if</span> vendor exists</div><div class="line">          Eject <span class="keyword">this</span> entry</div><div class="line">        <span class="keyword">else</span></div><div class="line">          Get price</div><div class="line">          Add new vendor-price pair to 'ItemMap' as the product's new value</div><div class="line">      <span class="keyword">else</span></div><div class="line">          Add to 'ItemMap'as new entry</div><div class="line">END Add</div><div class="line">Method <span class="title">Update</span><span class="params">()</span></div><div class="line">      Get product name and vendor name</div><div class="line">      <span class="keyword">if</span> the corresponding product exists</div><div class="line">        Get price</div><div class="line">        Update the price with vendor as the key</div><div class="line">      end <span class="keyword">if</span></div><div class="line">END Update</div><div class="line">Method <span class="title">Delete</span><span class="params">()</span></div><div class="line">      Get product name and <span class="title">vendor</span><span class="params">(Optional)</span></div><div class="line">      <span class="keyword">if</span> vendor is not blank</div><div class="line">        Delete the corresponding entry <span class="keyword">if</span> available</div><div class="line">      <span class="keyword">else</span></div><div class="line">        Delete those products by all vendors <span class="keyword">if</span> available</div><div class="line">      end <span class="keyword">if</span></div><div class="line">END Delete</div><div class="line">Method <span class="title">Ask</span><span class="params">()</span></div><div class="line">      Get product name and <span class="title">vendor</span><span class="params">(Optional)</span></div><div class="line">      <span class="keyword">if</span> vendor is not blank</div><div class="line">        Show the price of corresponding entry <span class="keyword">if</span> available</div><div class="line">      <span class="keyword">else</span></div><div class="line">        Show the price of those products by all vendors <span class="keyword">if</span> available</div><div class="line">      end <span class="keyword">if</span></div><div class="line">END Ask</div><div class="line">Method <span class="title">DisplayAll</span><span class="params">()</span></div><div class="line">       Traverse the HashMap 'Item Map'</div><div class="line">       Print the keys</div><div class="line">       Traverse the values which is the nested HashMaps</div><div class="line">       Print the key and value which are vendor and price</div><div class="line">END DisplayAll</div></pre></td></tr></table></figure>
+<p>###Code Listing:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.*;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OnlineMerchant</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> HashMap&lt;String,HashMap&lt;String,Integer&gt;&gt; ItemMap = <span class="keyword">new</span> HashMap&lt;&gt;();<span class="comment">//Use nested HashMaps to store the info</span></div><div class="line">    <span class="keyword">static</span> Scanner kb = <span class="keyword">new</span> Scanner(System.in);</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String arg[])</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Welcome to the online quotation services, functions provided include the following:\n"</span> + <span class="string">"1. Add – to add a new product together with its vendor/price to the system \n"</span> + <span class="string">"2. Update – to update the price of an existing product for a specific vendor\n"</span> + <span class="string">"3. Delete – to delete existing products\n"</span> + <span class="string">"4. Ask – to enquire about the price of a specific product\n"</span> + <span class="string">"5. List - to display all Items available\n"</span>+ <span class="string">"6. Quit – to exit the system"</span>);</div><div class="line">        <span class="keyword">boolean</span> end = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">while</span> (!end) &#123;</div><div class="line">            String command = userCommand();</div><div class="line">            <span class="keyword">if</span> (command.equals(<span class="string">"add"</span>)||command.equals(<span class="string">"1"</span>))</div><div class="line">                Add();</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (command.equals(<span class="string">"update"</span>)||command.equals(<span class="string">"2"</span>))</div><div class="line">                Update();</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (command.equals(<span class="string">"delete"</span>)||command.equals(<span class="string">"3"</span>))</div><div class="line">                Delete();</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (command.equals(<span class="string">"ask"</span>)||command.equals(<span class="string">"4"</span>))</div><div class="line">                Ask();</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (command.equals(<span class="string">"list"</span>)||command.equals(<span class="string">"5"</span>))</div><div class="line">                displayAll();</div><div class="line">            <span class="keyword">else</span> <span class="keyword">if</span> (command.equals(<span class="string">"quit"</span>)||command.equals(<span class="string">"6"</span>))&#123;</div><div class="line">                end = <span class="keyword">true</span>; System.out.println(<span class="string">"Program Terminated."</span>);</div><div class="line">            &#125;<span class="keyword">else</span> System.out.println(<span class="string">"o Unknown Command."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">userCommand</span><span class="params">()</span></span>&#123;</div><div class="line">        String command;</div><div class="line">        System.out.print(<span class="string">"\n &gt;&gt; Enter your command here: "</span>);</div><div class="line">        command = kb.nextLine().toLowerCase();<span class="comment">//Convert user input to lower case </span></div><div class="line">        <span class="keyword">return</span> command;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.print(<span class="string">"o Enter product name: "</span>);</div><div class="line">        String product = kb.nextLine();<span class="comment">//Use nextLine() method to accept inputs</span></div><div class="line">        System.out.print(<span class="string">"o Enter vendor name: "</span>);</div><div class="line">        String vendor = kb.nextLine();</div><div class="line">        <span class="keyword">if</span> (ItemMap.keySet().contains(product))&#123;<span class="comment">//Initiate a set of keys in HashMap 'ItemMap' &amp; To check if it contains inputted product name</span></div><div class="line">            <span class="keyword">if</span> (ItemMap.get(product).keySet().contains(vendor))<span class="comment">//Get the set of keys of the nested HashMap to see if 'vendor' exists</span></div><div class="line">                System.out.println(<span class="string">"o Product "</span>+product+<span class="string">"/"</span>+vendor+<span class="string">" Already Exists."</span>);<span class="comment">//This is the situation that an identical product already exists.</span></div><div class="line">            <span class="keyword">else</span>&#123;<span class="comment">//Situation the product already exists but by a new vendor.</span></div><div class="line">                <span class="keyword">int</span> price = inputNumber();</div><div class="line">                ItemMap.get(product).put(vendor,price);<span class="comment">//Add the new vendor/price info to the existing product.</span></div><div class="line">                System.out.println(<span class="string">"o New product "</span> + product + <span class="string">"/"</span> + vendor + <span class="string">" entered."</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;<span class="keyword">else</span>&#123;<span class="comment">//This is the situation that it is a new product</span></div><div class="line">            <span class="keyword">int</span> price = inputNumber();</div><div class="line">            HashMap&lt;String, Integer&gt; priceMap = <span class="keyword">new</span> HashMap&lt;&gt;();<span class="comment">//Initiate a new HashMap to store the vendor/price info</span></div><div class="line">            priceMap.put(vendor, price);<span class="comment">//Add the vendor/price to the new map</span></div><div class="line">            ItemMap.put(product, priceMap);<span class="comment">//Then add it back to the product map</span></div><div class="line">            System.out.println(<span class="string">"o New product "</span> + product + <span class="string">"/"</span> + vendor + <span class="string">" entered."</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Update</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.print(<span class="string">"o Enter product name: "</span>);</div><div class="line">        String product = kb.nextLine();</div><div class="line">        System.out.print(<span class="string">"o Enter vendor name: "</span>);</div><div class="line">        String vendor = kb.nextLine();</div><div class="line">        <span class="keyword">if</span> (!ItemMap.keySet().contains(product))</div><div class="line">            System.out.println(<span class="string">"o Product Not Found."</span>);</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">if</span> (!ItemMap.get(product).keySet().contains(vendor))</div><div class="line">                System.out.println(<span class="string">"o Product Not Found."</span>);</div><div class="line">            <span class="keyword">else</span>&#123;</div><div class="line">                <span class="keyword">int</span> price = inputNumber();</div><div class="line">                ItemMap.get(product).put(vendor,price);<span class="comment">//Update the price by reassign the value to the map</span></div><div class="line">                System.out.println(<span class="string">"o Product Price Updated."</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Delete</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.print(<span class="string">"o Enter product name: "</span>);</div><div class="line">        String product = kb.nextLine();</div><div class="line">        System.out.print(<span class="string">"o Enter vendor name (can be blank): "</span>);</div><div class="line">        String vendor = kb.nextLine();</div><div class="line">        <span class="keyword">if</span> (!ItemMap.keySet().contains(product))</div><div class="line">            System.out.println(<span class="string">"o Product Not Found."</span>);</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">int</span> size = ItemMap.get(product).size();<span class="comment">//Check vendor uniqueness.</span></div><div class="line">            <span class="keyword">if</span> (!vendor.equals(<span class="string">""</span>))&#123;<span class="comment">//If user inputs the vendor name</span></div><div class="line">                <span class="keyword">if</span> (!ItemMap.get(product).keySet().contains(vendor))</div><div class="line">                    System.out.println(<span class="string">"o Product Not Found."</span>);</div><div class="line">                <span class="keyword">else</span>&#123;</div><div class="line">                    HashMap&lt;String,Integer&gt; priceMap = ItemMap.get(product);</div><div class="line">                    <span class="keyword">if</span> (size == <span class="number">1</span>)<span class="comment">//If vendor unique, remove the whole entry</span></div><div class="line">                        ItemMap.remove(product);</div><div class="line">                    <span class="keyword">else</span> priceMap.remove(vendor);</div><div class="line">                    System.out.println(<span class="string">"o "</span>+product + <span class="string">"/"</span> + vendor+<span class="string">" entry deleted."</span>);&#125;</div><div class="line">            &#125;<span class="keyword">else</span>&#123;<span class="comment">//If no vendor inputted, delete that product by all vendors</span></div><div class="line">                <span class="keyword">if</span> (size == <span class="number">1</span>)</div><div class="line">                  System.out.println(<span class="string">"o 1 "</span>+product+<span class="string">" entry deleted."</span>);</div><div class="line">                <span class="keyword">else</span></div><div class="line">                  System.out.println(<span class="string">"o "</span>+size+<span class="string">" "</span>+product+<span class="string">" entries deleted."</span>);</div><div class="line">                ItemMap.remove(product);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">displayAll</span><span class="params">()</span></span>&#123;<span class="comment">//Utilize Set to traverse the HashMap</span></div><div class="line">        Set&lt;String&gt; productSet = ItemMap.keySet();</div><div class="line">        <span class="keyword">for</span> (String products: productSet)&#123;</div><div class="line">            System.out.println(products);</div><div class="line">            HashMap&lt;String,Integer&gt; priceMap = ItemMap.get(products);</div><div class="line">            Set&lt;String&gt; vendorSet = priceMap.keySet();</div><div class="line">            <span class="keyword">for</span> (String vendors: vendorSet)&#123;</div><div class="line">                Integer prices = priceMap.get(vendors);</div><div class="line">                System.out.println(<span class="string">"\t"</span>+vendors+<span class="string">"---"</span>+prices);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">Ask</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.print(<span class="string">"o Enter product name: "</span>);</div><div class="line">        String product = kb.nextLine();</div><div class="line">        System.out.print(<span class="string">"o Enter vendor name (can be blank): "</span>);</div><div class="line">        String vendor = kb.nextLine();</div><div class="line">        <span class="keyword">if</span> (!ItemMap.keySet().contains(product))</div><div class="line">            System.out.println(<span class="string">"o No "</span>+product+<span class="string">" found."</span>);</div><div class="line">        <span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">if</span> (!vendor.equals(<span class="string">""</span>))&#123;</div><div class="line">                <span class="keyword">if</span> (!ItemMap.get(product).keySet().contains(vendor))</div><div class="line">                    System.out.println(<span class="string">"o Product Not Found."</span>);</div><div class="line">                <span class="keyword">else</span></div><div class="line">                    System.out.println(<span class="string">"Selling price (RMB) of "</span>+product+<span class="string">"/"</span>+vendor+<span class="string">" is "</span>+ItemMap.get(product).get(vendor));</div><div class="line">            &#125;<span class="keyword">else</span>&#123;</div><div class="line">                String quote = <span class="string">""</span>;<span class="comment">//Traverse the HashMap</span></div><div class="line">                Set&lt;String&gt; productSet = ItemMap.keySet();</div><div class="line">                <span class="keyword">for</span> (String products: productSet)&#123;</div><div class="line">                    Set&lt;String&gt; vendorSet = ItemMap.get(products).keySet();</div><div class="line">                    <span class="keyword">if</span> (products.equals(product))&#123;<span class="comment">//If no vendor designated, show prices of the product by all vendors.</span></div><div class="line">                        <span class="keyword">for</span> (String vendors: vendorSet)</div><div class="line">                            quote += <span class="string">"("</span> + vendors + <span class="string">" "</span> + products + <span class="string">","</span> + ItemMap.get(products).get(vendors)+<span class="string">"); "</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;System.out.println(<span class="string">"Selling price (RMB): "</span>+quote);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">inputNumber</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> price = <span class="number">0</span>; <span class="keyword">boolean</span> validInput = <span class="keyword">false</span>;</div><div class="line">        <span class="keyword">while</span> (!validInput)&#123;</div><div class="line">            System.out.print(<span class="string">"o Selling price (RMB): "</span>);</div><div class="line">            <span class="keyword">try</span> &#123;<span class="comment">//To make sure user inputs a valid price</span></div><div class="line">                price = kb.nextInt(); kb.nextLine(); </div><div class="line">              	validInput = <span class="keyword">true</span>;</div><div class="line">            &#125;<span class="keyword">catch</span> (Exception e)&#123;</div><div class="line">                System.out.println(<span class="string">"o Invalid Price."</span>);</div><div class="line">                String s = kb.nextLine();&#125;</div><div class="line">        &#125;<span class="keyword">return</span> price;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/fuchenxu2008/fuchenxu2008.github.io/2017/06/01/My-New-Post/" data-id="cj3ddivx40000xm0hauizs4d0" class="article-share-link">Delen</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/fuchenxu2008.github.io/2017/06/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Ouder</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archieven</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/fuchenxu2008.github.io/archives/2017/06/">June 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recente berichten</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/fuchenxu2008.github.io/2017/06/01/My-New-Post/">My New Post</a>
+          </li>
+        
+          <li>
+            <a href="/fuchenxu2008.github.io/2017/06/01/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/fuchenxu2008.github.io/" class="mobile-nav-link">Home</a>
+  
+    <a href="/fuchenxu2008.github.io/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fuchenxu2008.github.io/fancybox/jquery.fancybox.css">
+  <script src="/fuchenxu2008.github.io/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/fuchenxu2008.github.io/js/script.js"></script>
+
+  </div>
+</body>
+</html>
